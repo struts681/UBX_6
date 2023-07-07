@@ -1,0 +1,4 @@
+*.sw?
+*.kate-swp
+**/build/
+*/build/

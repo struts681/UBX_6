@@ -2,17 +2,19 @@
 
 void gps_poll(unsigned char _class, unsigned char _id) {
     char poll_message[9];
+
     poll_message[0] = _sync[0];
     poll_message[1] = _sync[1];
     poll_message[2] = _class;
     poll_message[3] = _id;
-    poll_message[4] = 0;
-    poll_message[5] = 0;
+    poll_message[4] = '0';
+    poll_message[5] = '0';
     poll_message[6] = _class + _id;
     poll_message[7] = _class + _id;
     poll_message[8] = '\0';
 
-    uart_puts(uart0, &poll_message);
+    //sprintf("%c%c%c%c00%c%c", _sync[0], _sync[1], _class, _id, _class + _id, _class + _id);
+    uart_puts(uart0, poll_message);
 
 }
 
